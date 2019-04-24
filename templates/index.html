@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title>Mars Weather</title>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+ crossorigin="anonymous">
+
+
+<body>
+ <div class="container-fluid">
+  <div class="jumbotron text-center">
+   <h1>Mission to Mars</h1>
+   <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+  </div>
+ </div>
+</body>
+<!-- News -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11">
+            <div class="caption">
+                <div class="text-left">
+                <h2>Latest Mars News</h2>
+                <h5> {{mars_data.News_Title}} </h5>
+                <p>{{ mars_data.News_Parag }} </p>
+                                </div>
+                            </div>              
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                <div class="caption">
+                    <div class="text-left">
+                        <h2>Featured Mars Image</h2>
+                    </div>
+                </div>
+            <div class="thumbnail">
+                <img src="{{ mars_data.featured_image }}" alt="..." class="img-fluid"></a>
+            </div>
+        </div>  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="card" style="width: 21rem";>
+                      <h5 class="card-title">Current Weather on Mars</h5>
+                      <p class="card-text">{{ mars_data.weather }}</p>
+        </div>
+<!-- Facts Table -->
+          <br>
+              <h3>Mars Facts</h3>
+                <div style="max-width: 600px; max-height: 130px; font-size: 15px; margin-bottom: 75px;">
+                  {{ mars_data.Mars_Facts|safe }}
+            </div>
+          </div> 
+      </div>
+  </div>
+</div>
+</div>      
+<h3 style="padding-top: 50px; margin-top: 100px; text-align: center;"><strong>Mars Hemispheres</strong></h3>
+
+<div class="container">
+  <div class="row">
+        <div class="col-md-12">
+                <div class="row">
+                 {% for item in mars_data.Hemispheres %}
+                <div class="col-md-6">
+                    <div class="card text-white bg-dark" style="margin: 30px;">
+                            <img src= "{{ item.img_url }}"  class="img-fluid" class="img-responsive"/>
+                        <div class="card-body">
+                        <p class="card-text">{{ item.title }}</p>
+                       </div>
+                    </div>
+                </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+<!-- loop through the dictionary: -->
+    <!-- <div class="container">
+            <div class="row">
+                  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                      <div class="caption">
+                          <div class="text-center">
+                              <h3 class= "text-success">vs. Max Temperature (F):</h3>
+                            </div>
+                          </div>
+                  <div class="thumbnail">
+                      <a href= temp.html> <img src="Max_Temperature.png" alt="..." class="img-fluid" class="img-responsive"></a>
+                  </div>
+
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                      <div class="caption">
+                              <div class="text-center">
+                              <h3 class= "text-success">vs. Cloudiness (%):</h3>
+                          </div>
+                          </div>
+                    <div class="thumbnail">
+                          <a href= cloud.html> <img src="Cloudiness.png" alt="..." class="img-fluid" class="img-responsive"></a>
+                    </div>
+                </div>
+                <div class="row">
+                      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                      <div class="caption">
+                              <div class="text-center">
+                              <h3 class= "text-success">vs. Wind Speed (mph):</h3>
+                          </div>
+                        </div>
+                    <div class="thumbnail">
+                          <a href=wind.html><img src="Wind.png" alt="..." class="img-fluid" class="img-responsive"></a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                      <div class="caption"> 
+                              <div class="text-center">
+                              <h3 class= "text-success">vs. Humidity (%):</h3>
+                          </div>
+                          </div>
+                    <div class="thumbnail">
+                          <a href= humidity.html> <img src="Humidity.png" alt="..." class="img-fluid" class="img-responsive"></a>
+                    </div>
+            </div> -->
+  </body>
+
+</html>
